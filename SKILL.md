@@ -1,11 +1,11 @@
 ---
 name: job-crawler
-description: This skill should be used when the user asks to "search jobs", "find job postings", "run job crawler", "취업공고 크롤링", "공고 수집", "공고 검색", "채용공고", or wants to collect Korean job listings related to AI Transformation, AX, LLM, or any other keyword.
+description: This skill should be used when the user asks to "search jobs", "find job postings", "run job crawler", "취업공고 크롤링", "공고 수집", "공고 검색", "채용공고", or wants to collect Korean job listings for any keyword or position.
 ---
 
 # job-crawler
 
-AI/AX 관련 채용공고를 원티드, 잡코리아, 점핏, 사람인에서 수집하여 Excel 파일로 저장한다.
+원하는 키워드로 원티드, 잡코리아, 점핏, 사람인에서 채용공고를 수집하여 Excel 파일로 저장한다.
 
 아래 **5단계를 순서대로** 진행한다. 각 단계는 AskUserQuestion 1회로 처리한다.
 

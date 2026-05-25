@@ -4,7 +4,7 @@
 ![Claude Code](https://img.shields.io/badge/Claude%20Code-Skill-blueviolet)
 ![License](https://img.shields.io/badge/License-MIT-green)
 
-> A Claude Code skill that crawls Korean job postings for AI/AX roles from multiple platforms — one command to install, five questions to run.
+> A Claude Code skill that crawls Korean job postings for **any keyword** across major platforms — one command to install, five questions to run.
 
 ## Installation
 
@@ -31,7 +31,7 @@ Claude will guide you through 5 steps:
 
 | Step | Question | Options |
 |------|----------|---------|
-| 1 | Keyword | AX / AI Engineer·LLM / Prompt Engineer / AI PM / Custom |
+| 1 | Keyword | AX / AI Engineer·LLM / Prompt Engineer / AI PM / **Any custom keyword** |
 | 2 | Platforms | Wanted / Jumpit / Jobkorea / Saramin (multi-select) |
 | 3 | Deadline window | 7 / 14 / 30 days / All |
 | 4 | Sort order | By deadline / By company / By platform |
@@ -107,7 +107,7 @@ Claude Code에서 입력:
 
 | 단계 | 질문 | 선택지 |
 |------|------|--------|
-| 1 | 검색 키워드 | AX / AI Engineer·LLM / 프롬프트 엔지니어 / AI 기획·PM / 직접 입력 |
+| 1 | 검색 키워드 | AX / AI Engineer·LLM / 프롬프트 엔지니어 / AI 기획·PM / **직접 입력 (어떤 키워드든 가능)** |
 | 2 | 검색 플랫폼 | 원티드 / 점핏 / 잡코리아 / 사람인 (복수 선택) |
 | 3 | 마감 기간 | 7일 / 14일 / 30일 / 전체 |
 | 4 | 정렬 기준 | 마감일 빠른 순 / 회사명 순 / 사이트별 |
