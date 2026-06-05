@@ -7,7 +7,50 @@ description: This skill should be used when the user asks to "search jobs", "fin
 
 원하는 키워드로 원티드, 잡코리아, 점핏, 사람인에서 채용공고를 수집하여 Excel 파일로 저장한다.
 
+> **웹앱 버전 있음**: 터미널 없이 브라우저에서 쓰고 싶거나 다른 사람에게 공유하려면
+> `app.py` (Streamlit 웹앱)를 사용한다. 사용·배포 방법은 `DEPLOY.md` 참고.
+> 아래 5단계 CLI 흐름은 Claude Code 안에서 빠르게 엑셀을 뽑을 때 사용한다.
+
 아래 **5단계를 순서대로** 진행한다. 각 단계는 AskUserQuestion 1회로 처리한다.
+
+단, 5단계 질문 **전에 Step 0(환경 준비)을 먼저 수행**한다.
+
+---
+
+## Step 0 — 환경 준비 (최초 1회 / 새 환경)
+
+크롤링 실행에는 외부 Python 패키지와 Chromium 브라우저가 필요하다.
+manus 등 매번 초기화되는 샌드박스에서는 **사용자에게 질문하기 전에** 아래를 먼저 처리한다.
+
+`<base_dir>`은 이 스킬 호출 시 상단에 표시된 **`Base directory for this skill:`** 경로를 사용한다.
+
+### 1) 설치 여부 빠르게 확인
+
+```
+python -c "import requests, bs4, playwright, pandas, openpyxl; print('deps OK')"
+```
+(Mac/Linux는 `python3` 사용)
+
+- `deps OK`가 출력되면 → 2)·3) 건너뛰고 **Step 1로 진행**.
+- `ModuleNotFoundError`가 나면 → 아래 2)·3)을 실행.
+
+### 2) Python 패키지 설치
+
+```
+python -m pip install -r "<base_dir>/requirements.txt"
+```
+
+### 3) Playwright용 Chromium 브라우저 설치
+
+점핏·잡코리아 크롤링은 브라우저가 필요하다. 패키지 설치 직후 한 번 실행한다:
+
+```
+python -m playwright install chromium
+```
+
+> 참고: 위 명령이 권한/네트워크 문제로 실패하면, 사용자에게 "원티드·사람인은 브라우저 없이 동작하니 우선 그 두 곳만으로 진행할 수 있다"고 안내하고 Step 2(플랫폼)에서 조정한다.
+
+설치가 끝나면 **Step 1로 진행**한다.
 
 ---
 
@@ -144,5 +187,6 @@ Python 경로를 찾을 수 없으면 `where python` (Windows) 또는 `which pyt
 |------|------|------|
 | `PermissionError` | xlsx 파일이 열려 있음 | 파일 닫고 재실행 안내 |
 | 수집 0건 | 키워드가 좁거나 사이트 차단 | 키워드 변경 또는 플랫폼 조정 안내 |
-| `ModuleNotFoundError` | 패키지 미설치 | `pip install -r "<base_dir>/requirements.txt"` 실행 안내 |
+| `ModuleNotFoundError` | 패키지 미설치 | **Step 0**의 2)·3) 재실행 (`pip install -r "<base_dir>/requirements.txt"`) |
+| `playwright ... Executable doesn't exist` / 브라우저 없음 | Chromium 미설치 | **Step 0**의 3) 실행 (`python -m playwright install chromium`) |
 | 사람인 0건 | API 키 없음 | `config.py`의 `SARAMIN_API_KEY` 설정 안내 |

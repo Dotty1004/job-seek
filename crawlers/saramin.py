@@ -1,6 +1,7 @@
 import time
 import requests
-from config import SARAMIN_API_KEY, REQUEST_DELAY
+import config
+from config import REQUEST_DELAY
 from crawlers.base import BaseCrawler
 
 
@@ -9,7 +10,8 @@ class SaraminCrawler(BaseCrawler):
     _base_url = "https://oapi.saramin.co.kr/job-search"
 
     def fetch(self, keyword: str) -> list[dict]:
-        if not SARAMIN_API_KEY:
+        api_key = config.SARAMIN_API_KEY  # 호출 시점에 읽음 (웹앱에서 주입 가능)
+        if not api_key:
             print("[사람인] API 키 없음 — config.py의 SARAMIN_API_KEY를 설정하세요.")
             return []
 
@@ -17,7 +19,7 @@ class SaraminCrawler(BaseCrawler):
         page = 1
         while True:
             params = {
-                "access-key": SARAMIN_API_KEY,
+                "access-key": api_key,
                 "keywords": keyword,
                 "job_mid_cd": "",
                 "count": 100,
