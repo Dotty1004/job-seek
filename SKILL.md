@@ -1,9 +1,9 @@
 ---
-name: job-crawler
+name: job-seek
 description: This skill should be used when the user asks to "search jobs", "find job postings", "run job crawler", "취업공고 크롤링", "공고 수집", "공고 검색", "채용공고", or wants to collect Korean job listings for any keyword or position.
 ---
 
-# job-crawler
+# job-seek
 
 원하는 키워드로 원티드, 잡코리아, 점핏, 사람인에서 채용공고를 수집하여 Excel 파일로 저장한다.
 

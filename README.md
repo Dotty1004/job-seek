@@ -1,4 +1,4 @@
-# job-crawler
+# job-seek
 
 ![Python](https://img.shields.io/badge/Python-3.10%2B-blue?logo=python)
 ![Claude Code](https://img.shields.io/badge/Claude%20Code-Skill-blueviolet)
@@ -24,7 +24,7 @@ The script clones this repo to `~/.claude/skills/job-crawler/`, installs Python 
 
 Open Claude Code and type:
 ```
-/job-crawler
+/job-seek
 ```
 
 Claude will guide you through 5 steps:
@@ -94,13 +94,13 @@ irm https://raw.githubusercontent.com/jootang2/job-crawler/main/install.ps1 | ie
 
 설치 스크립트가 이 레포를 `~/.claude/skills/job-crawler/`에 클론하고,  
 Python 패키지와 Playwright 브라우저를 자동으로 설치합니다.  
-다음 Claude Code 실행 시 `/job-crawler` 스킬이 자동으로 인식됩니다.
+다음 Claude Code 실행 시 `/job-seek` 스킬이 자동으로 인식됩니다.
 
 ### 사용법
 
 Claude Code에서 입력:
 ```
-/job-crawler
+/job-seek
 ```
 
 5단계 질문에 답하면 크롤링이 시작됩니다:
